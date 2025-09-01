@@ -10,40 +10,51 @@ export const dynamic = "force-static"
 export const revalidate = 30
 
 export async function generateMetadata(): Promise<Metadata> {
-  const data = await basehub().query({
-    meta: {
-      title: true,
-      description: true,
-      ogImage: {
-        url: true,
+  try {
+    const data = await basehub().query({
+      meta: {
+        title: true,
+        description: true,
+        ogImage: {
+          url: true,
+        },
       },
-    },
-  })
+    })
 
-  return {
-    title: data.meta?.title || `BaseHub x v0 Example`,
-    description: data.meta?.description || `This is a blog built with BaseHub and v0.`,
-    generator: "v0.dev",
-    openGraph: {
+    return {
       title: data.meta?.title || `BaseHub x v0 Example`,
       description: data.meta?.description || `This is a blog built with BaseHub and v0.`,
-      images: data.meta?.ogImage?.url
-        ? [
-            {
-              url: data.meta.ogImage.url,
-              width: 1200,
-              height: 630,
-              alt: data.meta?.title || `BaseHub x v0 Example`,
-            },
-          ]
-        : [],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: data.meta?.title || `BaseHub x v0 Example`,
-      description: data.meta?.description || `This is a blog built with BaseHub and v0.`,
-      images: data.meta?.ogImage?.url ? [data.meta.ogImage.url] : [],
-    },
+      generator: "v0.dev",
+      openGraph: {
+        title: data.meta?.title || `BaseHub x v0 Example`,
+        description: data.meta?.description || `This is a blog built with BaseHub and v0.`,
+        images: data.meta?.ogImage?.url
+          ? [
+              {
+                url: data.meta.ogImage.url,
+                width: 1200,
+                height: 630,
+                alt: data.meta?.title || `BaseHub x v0 Example`,
+              },
+            ]
+          : [],
+      },
+      twitter: {
+        card: "summary_large_image",
+        title: data.meta?.title || `BaseHub x v0 Example`,
+        description: data.meta?.description || `This is a blog built with BaseHub and v0.`,
+        images: data.meta?.ogImage?.url ? [data.meta.ogImage.url] : [],
+      },
+    }
+  } catch (error) {
+    console.error("Error fetching metadata from Basehub:", error)
+    
+    // Fallback metadata if Basehub query fails
+    return {
+      title: `BaseHub x v0 Example`,
+      description: `This is a blog built with BaseHub and v0.`,
+      generator: "v0.dev",
+    }
   }
 }
 
