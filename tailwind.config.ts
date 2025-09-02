@@ -84,13 +84,97 @@ const config: Config = {
             height: "0",
           },
         },
+        "fade-in": {
+          from: {
+            opacity: "0",
+          },
+          to: {
+            opacity: "1",
+          },
+        },
+        "fade-out": {
+          from: {
+            opacity: "1",
+          },
+          to: {
+            opacity: "0",
+          },
+        },
+        "slide-in-from-top": {
+          from: {
+            transform: "translateY(-100%)",
+          },
+          to: {
+            transform: "translateY(0)",
+          },
+        },
+        "slide-in-from-bottom": {
+          from: {
+            transform: "translateY(100%)",
+          },
+          to: {
+            transform: "translateY(0)",
+          },
+        },
+        "slide-in-from-left": {
+          from: {
+            transform: "translateX(-100%)",
+          },
+          to: {
+            transform: "translateX(0)",
+          },
+        },
+        "slide-in-from-right": {
+          from: {
+            transform: "translateX(100%)",
+          },
+          to: {
+            transform: "translateX(0)",
+          },
+        },
+        "zoom-in": {
+          from: {
+            opacity: "0",
+            transform: "scale(0.95)",
+          },
+          to: {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+        },
+        "zoom-out": {
+          from: {
+            opacity: "1",
+            transform: "scale(1)",
+          },
+          to: {
+            opacity: "0",
+            transform: "scale(0.95)",
+          },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.2s ease-out",
+        "fade-out": "fade-out 0.2s ease-out",
+        "slide-in-from-top": "slide-in-from-top 0.2s ease-out",
+        "slide-in-from-bottom": "slide-in-from-bottom 0.2s ease-out",
+        "slide-in-from-left": "slide-in-from-left 0.2s ease-out",
+        "slide-in-from-right": "slide-in-from-right 0.2s ease-out",
+        "zoom-in": "zoom-in 0.2s ease-out",
+        "zoom-out": "zoom-out 0.2s ease-out",
+        "fade-in-0": "fade-in 0.2s ease-out",
+        "fade-out-0": "fade-out 0.2s ease-out",
+        "zoom-in-95": "zoom-in 0.2s ease-out",
+        "zoom-out-95": "zoom-out 0.2s ease-out",
+        "slide-in-from-top-2": "slide-in-from-top 0.2s ease-out",
+        "slide-in-from-bottom-2": "slide-in-from-bottom 0.2s ease-out",
+        "slide-in-from-left-2": "slide-in-from-left 0.2s ease-out",
+        "slide-in-from-right-2": "slide-in-from-right 0.2s ease-out",
       },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require("@tailwindcss/typography"), require("tailwindcss-animate")],
 }
 export default config
