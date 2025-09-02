@@ -24,7 +24,7 @@ export default function CopyToClipboard({ code }: { code: string }) {
   return (
     <button
       onClick={copyToClipboard}
-      className="text-[#646464] hover:text-[#c4c4c4] transition-colors duration-200 ease-in-out"
+      className="text-muted-foreground transition-colors duration-200 ease-in-out"
     >
       {copied ? <CheckIcon /> : <ClipboardIcon />}
     </button>
