@@ -1,27 +1,34 @@
+import { Github, Linkedin } from "lucide-react"
+
 export default function Footer() {
+  const githubUrl = process.env.NEXT_PUBLIC_GITHUB_URL || "https://github.com"
+  const linkedinUrl = process.env.NEXT_PUBLIC_LINKEDIN_URL || "https://www.linkedin.com"
+
   return (
-    <footer className="border-t">
-      <div className="container mx-auto px-5">
-        <div className="py-28 flex flex-col lg:flex-row items-center">
-          <h3 className="text-4xl lg:text-5xl font-bold tracking-tighter leading-tight text-center lg:text-left mb-10 lg:mb-0 lg:pr-4 lg:w-1/2">
-            Built with Next.js.
-          </h3>
-          <div className="flex flex-col lg:flex-row justify-center items-center lg:pl-4 lg:w-1/2">
+    <footer className="border-t border-border/50 mt-20">
+      <div className="container mx-auto px-5 py-8">
+        <div className="flex flex-col md:flex-row items-center justify-between text-center md:text-left">
+          <div className="text-sm text-muted-foreground mb-4 md:mb-0">
+            © 2025 by Jimmy. All rights reserved.
+          </div>
+          <div className="flex items-center gap-6 text-sm text-muted-foreground">
             <a
-              href="https://nextjs.org/docs"
+              href={githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mx-3 rounded-lg bg-black dark:bg-white hover:bg-white dark:hover:bg-black hover:text-black dark:hover:text-white border border-black dark:border-white text-white dark:text-black font-bold py-3 px-12 lg:px-8 duration-200 transition-colors mb-6 lg:mb-0"
+              className="flex items-center gap-2 transition-colors duration-200"
             >
-              Read Documentation
+              <Github className="h-4 w-4" />
+              GitHub
             </a>
             <a
-              href={`https://github.com/julianbenegas/v0-basehub-blog`}
+              href={linkedinUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mx-3 font-bold hover:underline"
+              className="flex items-center gap-2 transition-colors duration-200"
             >
-              View on GitHub
+              <Linkedin className="h-4 w-4" />
+              LinkedIn
             </a>
           </div>
         </div>
