@@ -2,7 +2,6 @@ import { basehub } from "basehub"
 import { Intro } from "./components/intro"
 import { HeroPost, PostMetaFragment } from "./components/hero-post"
 import { MoreStories } from "./components/more-stories"
-import { Newsletter } from "./components/newsletter"
 import type { Metadata } from "next"
 import "../basehub.config"
 
@@ -67,12 +66,6 @@ export default async function Page() {
         items: PostMetaFragment,
       },
     },
-    newsletter: {
-      subscribers: {
-        ingestKey: true,
-        schema: true,
-      },
-    },
   })
 
   const heroPost = data.blog.posts.items[0]
@@ -85,7 +78,6 @@ export default async function Page() {
         {heroPost && <HeroPost {...heroPost} />}
         <MoreStories morePosts={morePosts} title={data.blog.morePosts} />
       </section>
-      <Newsletter newsletter={data.newsletter.subscribers} />
     </main>
   )
 }
