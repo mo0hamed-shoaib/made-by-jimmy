@@ -14,6 +14,7 @@ body {
 
 @layer base {
   :root {
+    --radius: 0.5rem;
     --background: 0 0% 100%;
     --foreground: 0 0% 3.9%;
     --card: 0 0% 100%;
@@ -38,7 +39,6 @@ body {
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
-    --radius: 0.5rem;
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -47,8 +47,11 @@ body {
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --link-hover: 0 72% 45%;
   }
-  .dark {
+  
+  [data-theme="dark"] {
+    --radius: 0.5rem;
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
     --card: 0 0% 3.9%;
@@ -81,6 +84,155 @@ body {
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    --link-hover: 0 0% 65%;
+  }
+  
+  [data-theme="blue"] {
+    --radius: 0.5rem;
+    --background: 210 50% 92%;
+    --foreground: 210 50% 8%;
+    --card: 210 50% 92%;
+    --card-foreground: 210 50% 8%;
+    --popover: 210 50% 92%;
+    --popover-foreground: 210 50% 8%;
+    --primary: 210 50% 8%;
+    --primary-foreground: 210 50% 92%;
+    --secondary: 210 50% 85%;
+    --secondary-foreground: 210 50% 8%;
+    --muted: 210 50% 85%;
+    --muted-foreground: 210 50% 45%;
+    --accent: 210 50% 85%;
+    --accent-foreground: 210 50% 8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 210 50% 80%;
+    --input: 210 50% 80%;
+    --ring: 210 50% 8%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 210 50% 88%;
+    --sidebar-foreground: 210 50% 20%;
+    --sidebar-primary: 210 50% 8%;
+    --sidebar-primary-foreground: 210 50% 92%;
+    --sidebar-accent: 210 50% 85%;
+    --sidebar-accent-foreground: 210 50% 8%;
+    --sidebar-border: 210 50% 80%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --link-hover: 210 65% 35%;
+  }
+  
+  [data-theme="cream"] {
+    --radius: 0.5rem;
+    --background: 45 55% 90%;
+    --foreground: 45 55% 8%;
+    --card: 45 55% 90%;
+    --card-foreground: 45 55% 8%;
+    --popover: 45 55% 90%;
+    --popover-foreground: 45 55% 8%;
+    --primary: 45 55% 8%;
+    --primary-foreground: 45 55% 90%;
+    --secondary: 45 55% 83%;
+    --secondary-foreground: 45 55% 8%;
+    --muted: 45 55% 83%;
+    --muted-foreground: 45 55% 45%;
+    --accent: 45 55% 83%;
+    --accent-foreground: 45 55% 8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 45 55% 78%;
+    --input: 45 55% 78%;
+    --ring: 45 55% 8%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 45 55% 86%;
+    --sidebar-foreground: 45 55% 20%;
+    --sidebar-primary: 45 55% 8%;
+    --sidebar-primary-foreground: 45 55% 90%;
+    --sidebar-accent: 45 55% 83%;
+    --sidebar-accent-foreground: 45 55% 8%;
+    --sidebar-border: 45 55% 78%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --link-hover: 45 75% 40%;
+  }
+  
+  [data-theme="mint"] {
+    --radius: 0.5rem;
+    --background: 160 25% 88%;
+    --foreground: 160 25% 8%;
+    --card: 160 25% 88%;
+    --card-foreground: 160 25% 8%;
+    --popover: 160 25% 88%;
+    --popover-foreground: 160 25% 8%;
+    --primary: 160 25% 8%;
+    --primary-foreground: 160 25% 88%;
+    --secondary: 160 25% 81%;
+    --secondary-foreground: 160 25% 8%;
+    --muted: 160 25% 81%;
+    --muted-foreground: 160 25% 45%;
+    --accent: 160 25% 81%;
+    --accent-foreground: 160 25% 8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 160 25% 76%;
+    --input: 160 25% 76%;
+    --ring: 160 25% 8%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 160 25% 84%;
+    --sidebar-foreground: 160 25% 20%;
+    --sidebar-primary: 160 25% 8%;
+    --sidebar-primary-foreground: 160 25% 88%;
+    --sidebar-accent: 160 25% 81%;
+    --sidebar-accent-foreground: 160 25% 8%;
+    --sidebar-border: 160 25% 76%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --link-hover: 160 45% 35%;
+  }
+  
+  [data-theme="lavender"] {
+    --radius: 0.5rem;
+    --background: 270 35% 90%;
+    --foreground: 270 35% 8%;
+    --card: 270 35% 90%;
+    --card-foreground: 270 35% 8%;
+    --popover: 270 35% 90%;
+    --popover-foreground: 270 35% 8%;
+    --primary: 270 35% 8%;
+    --primary-foreground: 270 35% 90%;
+    --secondary: 270 35% 83%;
+    --secondary-foreground: 270 35% 8%;
+    --muted: 270 35% 83%;
+    --muted-foreground: 270 35% 45%;
+    --accent: 270 35% 83%;
+    --accent-foreground: 270 35% 8%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 270 35% 78%;
+    --input: 270 35% 78%;
+    --ring: 270 35% 8%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 270 35% 86%;
+    --sidebar-foreground: 270 35% 20%;
+    --sidebar-primary: 270 35% 8%;
+    --sidebar-primary-foreground: 270 35% 90%;
+    --sidebar-accent: 270 35% 83%;
+    --sidebar-accent-foreground: 270 35% 8%;
+    --sidebar-border: 270 35% 78%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+    --link-hover: 270 60% 30%;
   }
 }
 
@@ -91,8 +243,44 @@ body {
   body {
     @apply bg-background text-foreground;
   }
+  
+  /* Theme-aware link hover effects */
+  a {
+    transition: color 0.2s ease-in-out;
+  }
+  
+  a:hover {
+    color: hsl(var(--link-hover));
+  }
 }
 
+/* Default text selection for light theme */
 :root::selection {
   @apply bg-orange-600 text-white;
+}
+
+/* Theme-specific text selection colors */
+[data-theme="dark"]::selection {
+  background-color: hsl(0 0% 20%);
+  color: hsl(0 0% 98%);
+}
+
+[data-theme="blue"]::selection {
+  background-color: hsl(210 50% 30%);
+  color: hsl(210 50% 98%);
+}
+
+[data-theme="cream"]::selection {
+  background-color: hsl(45 55% 35%);
+  color: hsl(45 55% 98%);
+}
+
+[data-theme="mint"]::selection {
+  background-color: hsl(160 25% 30%);
+  color: hsl(160 25% 98%);
+}
+
+[data-theme="lavender"]::selection {
+  background-color: hsl(270 35% 35%);
+  color: hsl(270 35% 98%);
 }
