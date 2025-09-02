@@ -4,6 +4,7 @@ import { Maximize2, Monitor, Smartphone, Tablet, MonitorSmartphone } from "lucid
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
 import { cn } from "@/lib/utils"
 
 const widthOptions = [
@@ -99,9 +100,8 @@ export function WidthToggle() {
 
   if (!mounted) {
     return (
-      <Button variant="ghost" size="sm" className="w-auto px-3 py-2">
-        <Maximize2 className="h-4 w-4 mr-2" />
-        <span className="hidden sm:inline">Medium</span>
+      <Button variant="ghost" size="icon" className="w-9 h-9">
+        <Maximize2 className="h-4 w-4" />
       </Button>
     )
   }
@@ -110,39 +110,47 @@ export function WidthToggle() {
   const CurrentIcon = currentOption.icon
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="w-auto px-3 py-2 hover:scale-105 transition-transform duration-200">
-          <CurrentIcon className="h-4 w-4 mr-2" />
-          <span className="hidden sm:inline">{currentOption.name}</span>
-        </Button>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="w-56">
-        {widthOptions.map((option) => {
-          const OptionIcon = option.icon
-          const isActive = currentWidth === option.id
-          
-          return (
-            <DropdownMenuItem
-              key={option.id}
-              onClick={() => handleWidthChange(option.id)}
-              className={cn(
-                "flex items-center gap-3 cursor-pointer",
-                isActive && "bg-accent"
-              )}
-            >
-              <OptionIcon className="h-4 w-4" />
-              <div className="flex flex-col">
-                <span className="text-sm font-medium">{option.name}</span>
-                <span className="text-xs text-muted-foreground">{option.description}</span>
-              </div>
-              {isActive && (
-                <div className="ml-auto w-2 h-2 rounded-full bg-primary" />
-              )}
-            </DropdownMenuItem>
-          )
-        })}
-      </DropdownMenuContent>
-    </DropdownMenu>
+    <TooltipProvider>
+      <DropdownMenu>
+        <Tooltip>
+          <TooltipTrigger asChild>
+            <DropdownMenuTrigger asChild>
+              <Button variant="ghost" size="icon" className="w-9 h-9 hover:scale-105 transition-transform duration-200">
+                <CurrentIcon className="h-4 w-4" />
+              </Button>
+            </DropdownMenuTrigger>
+          </TooltipTrigger>
+          <TooltipContent>
+            <p>Content Width: {currentOption.name}</p>
+          </TooltipContent>
+        </Tooltip>
+        <DropdownMenuContent align="end" className="w-56">
+          {widthOptions.map((option) => {
+            const OptionIcon = option.icon
+            const isActive = currentWidth === option.id
+            
+            return (
+              <DropdownMenuItem
+                key={option.id}
+                onClick={() => handleWidthChange(option.id)}
+                className={cn(
+                  "flex items-center gap-3 cursor-pointer",
+                  isActive && "bg-accent"
+                )}
+              >
+                <OptionIcon className="h-4 w-4" />
+                <div className="flex flex-col">
+                  <span className="text-sm font-medium">{option.name}</span>
+                  <span className="text-xs text-muted-foreground">{option.description}</span>
+                </div>
+                {isActive && (
+                  <div className="ml-auto w-2 h-2 rounded-full bg-primary" />
+                )}
+              </DropdownMenuItem>
+            )
+          })}
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </TooltipProvider>
   )
 }
