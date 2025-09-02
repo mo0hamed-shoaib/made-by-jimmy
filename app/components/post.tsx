@@ -9,6 +9,7 @@ import { SocialSharing } from "./social-sharing"
 import { ReadingTime } from "./reading-time"
 import { fragmentOn } from "basehub"
 import { PostMetaFragment } from "./hero-post"
+import { TextHighlighter } from "./text-highlighter"
 
 export const PostFragment = fragmentOn("PostsItem", {
   ...PostMetaFragment,
@@ -58,17 +59,19 @@ export function Post({ _title, author, date, coverImage, body, _slug }: PostFrag
 
       <div className="mx-auto" data-article-content>
         <div className="prose dark:prose-invert hover:prose-a:text-orange-500 mx-auto">
-          <RichText
-            components={{
-              img: (props) => <BodyImage {...props} />,
-              pre: ({ code, language }) => (
-                <CodeBlock theme="github-dark-default" snippets={[{ code, language }]} />
-              ),
-              li: (props) => <li {...props} className="my-0" />
-            }}
-          >
-            {body.json.content}
-          </RichText>
+          <TextHighlighter>
+            <RichText
+              components={{
+                img: (props) => <BodyImage {...props} />,
+                pre: ({ code, language }) => (
+                  <CodeBlock theme="github-dark-default" snippets={[{ code, language }]} />
+                ),
+                li: (props) => <li {...props} className="my-0" />
+              }}
+            >
+              {body.json.content}
+            </RichText>
+          </TextHighlighter>
         </div>
       </div>
 

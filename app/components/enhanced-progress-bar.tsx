@@ -7,6 +7,8 @@ import { WidthToggle } from "./width-toggle"
 import { ThemeToggle } from "./theme-toggle"
 import { ChevronDown, MoreHorizontal } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { KeyboardShortcuts } from "./keyboard-shortcuts"
+import { TouchGestures } from "./touch-gestures"
 
 export function EnhancedProgressBar() {
   const [progress, setProgress] = useState(0)
@@ -57,6 +59,17 @@ export function EnhancedProgressBar() {
 
   return (
     <>
+      {/* Keyboard Shortcuts */}
+      <KeyboardShortcuts 
+        onToggleDock={() => setIsDockVisible(!isDockVisible)}
+      />
+      
+      {/* Touch Gestures */}
+      <TouchGestures 
+        onSwipeLeft={() => window.history.forward()}
+        onSwipeRight={() => window.history.back()}
+      />
+      
       {/* Main Dock */}
       <div 
         className={cn(
