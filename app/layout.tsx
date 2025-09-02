@@ -3,6 +3,8 @@ import { Toolbar } from "basehub/next-toolbar"
 import { basehub } from "basehub"
 import Footer from "./components/footer"
 import { PlaygroundSetupModal } from "./components/playground-notification"
+import { SkipToContent } from "./components/skip-to-content"
+import { EnhancedProgressBar } from "./components/enhanced-progress-bar"
 import "./globals.css"
 import "../basehub.config"
 import { ThemeProvider } from "@/components/theme-provider"
@@ -82,9 +84,11 @@ export default async function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <SkipToContent />
+          <EnhancedProgressBar />
           {!isMainV0 && <Toolbar />}
           {playgroundNotification}
-          <main className="min-h-screen">
+          <main className="min-h-screen" id="main-content">
             {children}
             <Footer />
           </main>

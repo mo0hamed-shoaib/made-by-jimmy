@@ -2,6 +2,7 @@ import { basehub } from "basehub"
 import { Intro } from "./components/intro"
 import { HeroPost, PostMetaFragment } from "./components/hero-post"
 import { MoreStories } from "./components/more-stories"
+import { GoToTop } from "./components/go-to-top"
 import type { Metadata } from "next"
 import "../basehub.config"
 
@@ -78,6 +79,7 @@ export default async function Page() {
         {heroPost && <HeroPost {...heroPost} />}
         <MoreStories morePosts={morePosts} title={data.blog.morePosts} />
       </section>
+      <GoToTop />
     </main>
   )
 }

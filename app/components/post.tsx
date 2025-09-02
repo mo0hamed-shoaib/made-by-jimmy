@@ -4,7 +4,9 @@ import CoverImage from "@/app/components/cover-image"
 import Avatar from "@/app/components/avatar"
 import Date from "@/app/components/date"
 import { BodyImage } from "./body-image"
-import { WidthToggle } from "./width-toggle"
+import { GoToTop } from "./go-to-top"
+import { SocialSharing } from "./social-sharing"
+import { ReadingTime } from "./reading-time"
 import { fragmentOn } from "basehub"
 import { PostMetaFragment } from "./hero-post"
 
@@ -15,12 +17,18 @@ export const PostFragment = fragmentOn("PostsItem", {
 
 export type PostFragment = fragmentOn.infer<typeof PostFragment>
 
-export function Post({ _title, author, date, coverImage, body }: PostFragment) {
+export function Post({ _title, author, date, coverImage, body, _slug }: PostFragment) {
+  const currentUrl = typeof window !== 'undefined' ? window.location.href : ''
+
   return (
     <article>
-      <h1 className="mb-12 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl">
+      <h1 className="mb-6 text-center text-6xl font-bold leading-tight tracking-tighter md:text-left md:text-7xl md:leading-none lg:text-8xl">
         {_title}
       </h1>
+
+      <div className="mb-8 text-center md:text-left">
+        <ReadingTime />
+      </div>
 
       <div className="hidden md:block md:mb-6">
         {author && <Avatar title={author._title} url={author.avatar.url} />}
@@ -37,10 +45,6 @@ export function Post({ _title, author, date, coverImage, body }: PostFragment) {
           height={1000}
           priority
         />
-      </div>
-
-      <div className="flex justify-center mb-8">
-        <WidthToggle />
       </div>
 
       <div className="mx-auto" data-article-content>
@@ -67,6 +71,17 @@ export function Post({ _title, author, date, coverImage, body }: PostFragment) {
           </RichText>
         </div>
       </div>
+
+      {/* Social Sharing */}
+      <div className="flex justify-center mt-12 mb-8">
+        <SocialSharing 
+          title={_title}
+          url={currentUrl}
+          description={`Check out this article: ${_title}`}
+        />
+      </div>
+
+      <GoToTop />
     </article>
   )
 }
