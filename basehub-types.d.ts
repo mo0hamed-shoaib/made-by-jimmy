@@ -58,10 +58,10 @@ export interface Scalars {
     Int: number,
     JSON: any,
     String: string,
-    bshb_event_159774123: `bshb_event_159774123:${string}`,
-    schema_bshb_event_159774123: {email: string;},
-    bshb_workflow_578010064: `bshb_workflow_578010064:${string}`,
-    schema_bshb_workflow_578010064: { timestamp: string, type: 'list-block.created', data: {
+    bshb_event__530312905: `bshb_event__530312905:${string}`,
+    schema_bshb_event__530312905: {email: string;},
+    bshb_workflow_218139063: `bshb_workflow_218139063:${string}`,
+    schema_bshb_workflow_218139063: { timestamp: string, type: 'list-block.created', data: {
   listBlockId: string;
   listBlockTitle?: string;
   blockId: string
@@ -419,15 +419,15 @@ export interface SearchHighlight {
 
 export interface SendNewPost {
     /** The `webhookSecret` is used to verify the authenticity of the webhook request, and also to type the payload. */
-    webhookSecret: Scalars['bshb_workflow_578010064']
+    webhookSecret: Scalars['bshb_workflow_218139063']
     __typename: 'SendNewPost'
 }
 
 export interface Subscribers {
     /** The `adminKey` gives clients the ability to query, delete and update this block's data. **It's not meant to be exposed to the public.** */
-    adminKey: Scalars['bshb_event_159774123']
+    adminKey: Scalars['bshb_event__530312905']
     /** The `ingestKey` gives clients the ability to send new events to this block. Generally, it's safe to expose it to the public. */
-    ingestKey: Scalars['bshb_event_159774123']
+    ingestKey: Scalars['bshb_event__530312905']
     schema: Scalars['BSHBEventSchema']
     __typename: 'Subscribers'
 }
