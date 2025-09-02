@@ -132,7 +132,7 @@ export function PlaygroundSetupModal({
                             href={playgroundInfo.claimUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 text-sm text-orange-700 hover:text-orange-900 font-medium"
+                            className="inline-flex items-center gap-2 text-sm text-orange-700 font-medium transition-colors duration-200"
                           >
                             Claim it.
                           </a>
