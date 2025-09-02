@@ -4,6 +4,7 @@ import CoverImage from "@/app/components/cover-image"
 import Avatar from "@/app/components/avatar"
 import Date from "@/app/components/date"
 import { BodyImage } from "./body-image"
+import { WidthToggle } from "./width-toggle"
 import { fragmentOn } from "basehub"
 import { PostMetaFragment } from "./hero-post"
 
@@ -38,7 +39,11 @@ export function Post({ _title, author, date, coverImage, body }: PostFragment) {
         />
       </div>
 
-      <div className="mx-auto max-w-2xl">
+      <div className="flex justify-center mb-8">
+        <WidthToggle />
+      </div>
+
+      <div className="mx-auto" data-article-content>
         <div className="mb-6 block md:hidden">
           {author && <Avatar title={author._title} url={author.avatar.url} />}
         </div>
@@ -47,15 +52,15 @@ export function Post({ _title, author, date, coverImage, body }: PostFragment) {
         </div>
       </div>
 
-      <div className="mx-auto max-w-2xl">
-        <div className="prose dark:prose-invert hover:prose-a:text-orange-500">
+      <div className="mx-auto" data-article-content>
+        <div className="prose dark:prose-invert hover:prose-a:text-orange-500 mx-auto">
           <RichText
             components={{
               img: (props) => <BodyImage {...props} />,
               pre: ({ code, language }) => (
                 <CodeBlock theme="github-dark-default" snippets={[{ code, language }]} />
               ),
-              li: (props) => <li {...props} className="[&>p]:my-0" />
+              li: (props) => <li {...props} className="my-0" />
             }}
           >
             {body.json.content}
