@@ -5,6 +5,7 @@ import { basehub } from "basehub"
 import { Post, PostFragment } from "@/app/components/post"
 import { MoreStories } from "@/app/components/more-stories"
 import { PostMetaFragment } from "@/app/components/hero-post"
+import { ThemeToggle } from "@/app/components/theme-toggle"
 import "../../../basehub.config"
 
 export const dynamic = "force-static"
@@ -102,11 +103,14 @@ export default async function PostPage({ params }: PageProps) {
   return (
     <main>
       <section className="container mx-auto px-5">
-        <h2 className="mt-16 mb-16 md:mb-12 text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter">
-          <Link href="/" className="hover:underline">
-            Blog.
-          </Link>
-        </h2>
+        <div className="mt-16 mb-16 md:mb-12 flex items-center justify-between">
+          <h2 className="text-2xl font-bold leading-tight tracking-tight md:text-4xl md:tracking-tighter">
+            <Link href="/" className="hover:underline">
+              Made by Jimmy.
+            </Link>
+          </h2>
+          <ThemeToggle />
+        </div>
         <Post {...post} />
         <hr className="mt-28 mb-24" />
         <MoreStories
